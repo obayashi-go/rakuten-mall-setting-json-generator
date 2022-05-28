@@ -1,0 +1,18 @@
+.use-select-check {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.banner-setting-area {
+  display: flex;
+  gap: 10px;
+  .input-setting-content-title {
+    padding-left: 6px;
+    border-left: solid 2px #ff3f80;
+  }
+  .use-banner-detail {
+    width: 100%;
+    mat-form-field {
+      width: 100%;
+    }
+  }
+}

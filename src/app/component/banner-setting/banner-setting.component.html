@@ -1,0 +1,38 @@
+<div class="banner-setting-wrapper">
+  <mat-card>
+    <form [formGroup]="fg">
+      <div class="use-select-check">
+        <mat-checkbox
+          formControlName="useThisPattern"
+          class="example-margin">Pattern{{pattern}} を使用する
+        </mat-checkbox>
+      </div>
+      <div class="banner-setting-area">
+        <div class="date-range">
+          <p class="input-setting-content-title">Pattern{{pattern}} の公開日程</p>
+          <mat-form-field appearance="fill">
+            <mat-label>Pattern{{pattern}} 公開期間</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate placeholder="開始日" formControlName="beginDate">
+              <input matEndDate placeholder="終了日" formControlName="endDate">
+            </mat-date-range-input>
+            <mat-hint>YYYY-MM-DD – YYYY-MM-DD</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+        </div>
+        <div class="use-banner-detail">
+          <p class="input-setting-content-title">Pattern{{pattern}} バナー情報</p>
+          <ng-container *ngFor="let imgSrcObj of imgSrcObjList;">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>画像ファイル名</mat-label>
+              <input type="text" matInput [ngModel]="imgSrcObj.src"
+                     placeholder="対象バナーの画像ファイル名">
+              <mat-hint>imgディレクトリから新規ディレクトリを切って管理を行う場合は、`[ディレクトリ名]/画像ファイル名(拡張子つき）としてください</mat-hint>
+            </mat-form-field>
+          </ng-container>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>
